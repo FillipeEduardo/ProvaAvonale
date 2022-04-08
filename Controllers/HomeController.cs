@@ -47,7 +47,24 @@ namespace ProvaAvonale.Controllers
             try
             {
                 var model = await context.Estoques.FirstOrDefaultAsync(x => x.Id == id);
+                if (model == null) return BadRequest("Ocorreu um erro desconhecido");
                 return Ok(model);
+            }
+            catch (Exception)
+            {
+                return StatusCode(400, "Ocorreu um erro desconhecido");
+            }
+        }
+        [HttpDelete("produtos/{id:int}")]
+        public async Task<IActionResult> Delete([FromRoute] int id, AppDbContext context)
+        {
+            try
+            {
+                var model = await context.Estoques.FirstOrDefaultAsync(x => x.Id == id);
+                if (model == null) return BadRequest("Ocorreu um erro desconhecido");
+                context.Estoques.Remove(model);
+                await context.SaveChangesAsync();
+                return Ok("Produto excluído com sucesso");
             }
             catch (Exception)
             {
