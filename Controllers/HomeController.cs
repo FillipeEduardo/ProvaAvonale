@@ -40,6 +40,20 @@ namespace ProvaAvonale.Controllers
                 return StatusCode(400, "Ocorreu um erro desconhecido");
             }
         }
+        [HttpGet("produtos/{id:int}")]
+        public async Task<IActionResult> Get([FromRoute] int id, [FromServices] AppDbContext context)
+        {
+            
+            try
+            {
+                var model = await context.Estoques.FirstOrDefaultAsync(x => x.Id == id);
+                return Ok(model);
+            }
+            catch (Exception)
+            {
+                return StatusCode(400, "Ocorreu um erro desconhecido");
+            }
+        }
         
     }
 }
