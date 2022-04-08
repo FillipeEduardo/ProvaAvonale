@@ -43,7 +43,7 @@ namespace ProvaAvonale.Controllers
         [HttpGet("produtos/{id:int}")]
         public async Task<IActionResult> Get([FromRoute] int id, [FromServices] AppDbContext context)
         {
-            
+
             try
             {
                 var model = await context.Estoques.FirstOrDefaultAsync(x => x.Id == id);
@@ -56,7 +56,7 @@ namespace ProvaAvonale.Controllers
             }
         }
         [HttpDelete("produtos/{id:int}")]
-        public async Task<IActionResult> Delete([FromRoute] int id, AppDbContext context)
+        public async Task<IActionResult> Delete([FromRoute] int id, [FromServices] AppDbContext context)
         {
             try
             {
