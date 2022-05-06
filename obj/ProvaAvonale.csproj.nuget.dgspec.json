@@ -51,6 +51,10 @@
             "refit": {
               "target": "Package",
               "version": "[6.3.2, )"
+            },
+            "refit.httpclientfactory": {
+              "target": "Package",
+              "version": "[6.3.2, )"
             }
           },
           "imports": [

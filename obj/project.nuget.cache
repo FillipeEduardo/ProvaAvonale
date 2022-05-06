@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "FNEmWRwWs4GHrDOYG1W7fZVJZJhktsV6dNYRWXhE+FzVDNeH4iAC3MyASQNf9aUm1PAI31w1xhblTxxowtd5Ww==",
+  "dgSpecHash": "Zzy7fdGpdhS7980OCTCaQ5h3jI0xk1n2G1EY52b4Z1D9ZMz3T+RLf8bfxfBphzJBqRXXM7mElUp7/42qCdDdKA==",
   "success": true,
   "projectFilePath": "C:\\Users\\ext.fillipeeos\\Desktop\\ProvaAvonale\\ProvaAvonale.csproj",
   "expectedPackageFiles": [
@@ -19,11 +19,13 @@
     "C:\\Users\\ext.fillipeeos\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.0\\microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
     "C:\\Users\\ext.fillipeeos\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\ext.fillipeeos\\.nuget\\packages\\microsoft.extensions.dependencymodel\\6.0.0\\microsoft.extensions.dependencymodel.6.0.0.nupkg.sha512",
+    "C:\\Users\\ext.fillipeeos\\.nuget\\packages\\microsoft.extensions.http\\6.0.0\\microsoft.extensions.http.6.0.0.nupkg.sha512",
     "C:\\Users\\ext.fillipeeos\\.nuget\\packages\\microsoft.extensions.logging\\6.0.0\\microsoft.extensions.logging.6.0.0.nupkg.sha512",
     "C:\\Users\\ext.fillipeeos\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\ext.fillipeeos\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
     "C:\\Users\\ext.fillipeeos\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "C:\\Users\\ext.fillipeeos\\.nuget\\packages\\refit\\6.3.2\\refit.6.3.2.nupkg.sha512",
+    "C:\\Users\\ext.fillipeeos\\.nuget\\packages\\refit.httpclientfactory\\6.3.2\\refit.httpclientfactory.6.3.2.nupkg.sha512",
     "C:\\Users\\ext.fillipeeos\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.0.6\\sqlitepclraw.bundle_e_sqlite3.2.0.6.nupkg.sha512",
     "C:\\Users\\ext.fillipeeos\\.nuget\\packages\\sqlitepclraw.core\\2.0.6\\sqlitepclraw.core.2.0.6.nupkg.sha512",
     "C:\\Users\\ext.fillipeeos\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.6\\sqlitepclraw.lib.e_sqlite3.2.0.6.nupkg.sha512",
