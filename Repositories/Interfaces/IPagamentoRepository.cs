@@ -1,6 +1,7 @@
 using ProvaAvonale.Models;
 using ProvaAvonale.Results;
 using Refit;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ProvaAvonale.Repositories.Interfaces
 {
@@ -8,6 +9,5 @@ namespace ProvaAvonale.Repositories.Interfaces
     {
         [Post("/api/gateways/compras")]
         Task<Result> PostPagamento(PagamentoModel pagamento);
-
     }
 }

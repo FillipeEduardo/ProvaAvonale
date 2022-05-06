@@ -1,6 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using ProvaAvonale.Data;
 using ProvaAvonale.Models;
 using ProvaAvonale.Repositories.Interfaces;
 using ProvaAvonale.Results;
