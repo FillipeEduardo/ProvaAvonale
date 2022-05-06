@@ -10,13 +10,13 @@ namespace ProvaAvonale.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [JsonPropertyName("nome")]
-        [Required(ErrorMessage = "O nome é obrigatório.")]
+        [Required(ErrorMessage = "O nome ï¿½ obrigatï¿½rio.")]
         public string NomeProduto { get; set; }
         [JsonPropertyName("valor_unitario")]
-        [Required(ErrorMessage = "O valor unitário é obrigatório.")]
+        [Required(ErrorMessage = "O valor unitï¿½rio ï¿½ obrigatï¿½rio.")]
         public double ValorUnitario { get; set; }
         [JsonPropertyName("qtde_estoque")]
-        [Required(ErrorMessage = "A quantidade do estoque é obrigatória.")]
+        [Required(ErrorMessage = "A quantidade do estoque ï¿½ obrigatï¿½ria.")]
         public int QuantidadeEstoque { get; set; }
         public DateTime DataUltimaVenda { get; set; }
         public double ValorUltimaVenda { get; set; }

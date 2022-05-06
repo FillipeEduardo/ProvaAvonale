@@ -7,14 +7,16 @@ namespace ProvaAvonale.Controllers
 {
     [ApiController]
     [Route("api")]
-    public class HomeController : ControllerBase
+    public class ProdutosController : ControllerBase
     {
+        
+
         [HttpPost("produtos")]
         public async Task<IActionResult> Post([FromBody] Estoque estoque, [FromServices] AppDbContext context)
         {
             if (estoque == null || estoque.ValorUnitario == 0 || estoque.QuantidadeEstoque == 0)
             {
-                return StatusCode(412, "Os valores informados n„o s„o v·lidos");
+                return StatusCode(412, "Os valores informados n√£o s√£o v√°lidos");
             }
             try
             {
@@ -64,7 +66,7 @@ namespace ProvaAvonale.Controllers
                 if (model == null) return BadRequest("Ocorreu um erro desconhecido");
                 context.Estoques.Remove(model);
                 await context.SaveChangesAsync();
-                return Ok("Produto excluÌdo com sucesso");
+                return Ok("Produto exclu√≠do com sucesso");
             }
             catch (Exception)
             {
