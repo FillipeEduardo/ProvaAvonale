@@ -2,6 +2,8 @@
 
 ##  About this project
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/70e91d6504ee47dfad044b3576868056)](https://app.codacy.com/gh/lipaoos/ProvaAvonale?utm_source=github.com&utm_medium=referral&utm_content=lipaoos/ProvaAvonale&utm_campaign=Badge_Grade_Settings)
+
 A prova foi feita 100%, com as validações necessarias, e com todos os retornos possiveis para cada API.
 
 Questão 1: Foi criado a classe ProdutosModel para instanciação do produto a ser inserido no estoque, atraves de injeção de dependencia com o banco de dados SQLite. Metodo post funcionando corretamente com as suas validações e seus retornos possiveis.
