@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace ProvaAvonale.Models
@@ -6,7 +7,7 @@ namespace ProvaAvonale.Models
     {
         [JsonPropertyName("titular")]
         public string? Titular { get; set; }
-
+        [CreditCard]
         [JsonPropertyName("numero")]
         public string? Numero { get; set; }
 
