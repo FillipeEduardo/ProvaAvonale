@@ -12,7 +12,7 @@ namespace ProvaAvonale.Controllers
         
 
         [HttpPost("produtos")]
-        public async Task<IActionResult> Post([FromBody] Estoque estoque, [FromServices] AppDbContext context)
+        public async Task<IActionResult> Post([FromBody] ProdutosModel estoque, [FromServices] AppDbContext context)
         {
             if (estoque == null || estoque.ValorUnitario == 0 || estoque.QuantidadeEstoque == 0)
             {
@@ -20,7 +20,7 @@ namespace ProvaAvonale.Controllers
             }
             try
             {
-                await context.Estoques.AddAsync(estoque);
+                await context.Estoques!.AddAsync(estoque);
                 await context.SaveChangesAsync();
                 return Ok("Produto Cadastrado");
             }
@@ -34,7 +34,7 @@ namespace ProvaAvonale.Controllers
         {
             try
             {
-                var lista = await context.Estoques.ToListAsync();
+                var lista = await context.Estoques!.ToListAsync();
                 return Ok(lista);
             }
             catch (Exception)
@@ -48,7 +48,7 @@ namespace ProvaAvonale.Controllers
 
             try
             {
-                var model = await context.Estoques.FirstOrDefaultAsync(x => x.Id == id);
+                var model = await context.Estoques!.FirstOrDefaultAsync(x => x.Id == id);
                 if (model == null) return BadRequest("Ocorreu um erro desconhecido");
                 return Ok(model);
             }
@@ -62,9 +62,9 @@ namespace ProvaAvonale.Controllers
         {
             try
             {
-                var model = await context.Estoques.FirstOrDefaultAsync(x => x.Id == id);
+                var model = await context.Estoques!.FirstOrDefaultAsync(x => x.Id == id);
                 if (model == null) return BadRequest("Ocorreu um erro desconhecido");
-                context.Estoques.Remove(model);
+                context.Estoques!.Remove(model);
                 await context.SaveChangesAsync();
                 return Ok("Produto excluído com sucesso");
             }

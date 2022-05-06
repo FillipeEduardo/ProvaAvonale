@@ -4,14 +4,14 @@ using System.Text.Json.Serialization;
 
 namespace ProvaAvonale.Models
 {
-    public class Estoque
+    public class ProdutosModel
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [JsonPropertyName("nome")]
         [Required(ErrorMessage = "O nome � obrigat�rio.")]
-        public string NomeProduto { get; set; }
+        public string? NomeProduto { get; set; }
         [JsonPropertyName("valor_unitario")]
         [Required(ErrorMessage = "O valor unit�rio � obrigat�rio.")]
         public double ValorUnitario { get; set; }

@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace ProvaAvonale.Models
 {
-    public class Compra
+    public class CompraModel
     {
         [JsonPropertyName("produto_id")]
         public int ProdutoId { get; set; }
@@ -11,6 +11,6 @@ namespace ProvaAvonale.Models
         public int QtdeComprada { get; set; }
 
         [JsonPropertyName("cartao")]
-        public Cartao Cartao { get; set; }
+        public CartaoModel? Cartao { get; set; }
     }
 }
