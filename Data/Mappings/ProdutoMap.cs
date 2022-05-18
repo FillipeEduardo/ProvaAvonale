@@ -21,7 +21,7 @@ public class ProdutoMap : IEntityTypeConfiguration<ProdutoModel>
             .HasColumnType("NVARCHAR")
             .HasMaxLength(80);
 
-        builder.Property(X => X.QuantidadeEstoque)
+        builder.Property(x => x.QuantidadeEstoque)
             .IsRequired()
             .HasColumnName("Quantidade")
             .HasColumnType("INTEGER");
@@ -35,7 +35,7 @@ public class ProdutoMap : IEntityTypeConfiguration<ProdutoModel>
             .HasColumnName("DataUltimaVenda")
             .HasColumnType("DATETIME");
 
-        builder.Property(X => X.ValorUltimaVenda)
+        builder.Property(x => x.ValorUltimaVenda)
             .HasColumnName("ValorUltimaVenda")
             .HasColumnType("DOUBLE");
     }

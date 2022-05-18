@@ -9,10 +9,10 @@ namespace ProvaAvonale.Controllers
     [Route("api")]
     public class ProdutoController : ControllerBase
     {
-        
+        readonly AppDbContext _context = new();
 
         [HttpPost("produtos")]
-        public async Task<IActionResult> Post([FromBody] ProdutoModel estoque, [FromServices] AppDbContext context)
+        public async Task<IActionResult> Post([FromBody] ProdutoModel estoque)
         {
             if (estoque.ValorUnitario == 0 || estoque.QuantidadeEstoque == 0)
             {
@@ -20,8 +20,8 @@ namespace ProvaAvonale.Controllers
             }
             try
             {
-                if (context.Produtos != null) await context.Produtos.AddAsync(estoque);
-                await context.SaveChangesAsync();
+                if (_context.Produtos != null) await _context.Produtos.AddAsync(estoque);
+                await _context.SaveChangesAsync();
                 return Ok("Produto Cadastrado");
             }
             catch
@@ -30,11 +30,11 @@ namespace ProvaAvonale.Controllers
             }
         }
         [HttpGet("produtos")]
-        public async Task<IActionResult> Get([FromServices] AppDbContext context)
+        public async Task<IActionResult> Get()
         {
             try
             {
-                var lista = await context.Produtos!.ToListAsync();
+                var lista = await _context.Produtos!.ToListAsync();
                 return Ok(lista);
             }
             catch
@@ -43,12 +43,12 @@ namespace ProvaAvonale.Controllers
             }
         }
         [HttpGet("produtos/{id:int}")]
-        public async Task<IActionResult> Get([FromRoute] int id, [FromServices] AppDbContext context)
+        public async Task<IActionResult> Get([FromRoute] int id)
         {
 
             try
             {
-                var model = await context.Produtos!.FirstOrDefaultAsync(x => x.Id == id);
+                var model = await _context.Produtos!.FirstOrDefaultAsync(x => x.Id == id);
                 if (model == null) return BadRequest("Ocorreu um erro desconhecido");
                 return Ok(model);
             }
@@ -58,14 +58,14 @@ namespace ProvaAvonale.Controllers
             }
         }
         [HttpDelete("produtos/{id:int}")]
-        public async Task<IActionResult> Delete([FromRoute] int id, [FromServices] AppDbContext context)
+        public async Task<IActionResult> Delete([FromRoute] int id)
         {
             try
             {
-                var model = await context.Produtos!.FirstOrDefaultAsync(x => x.Id == id);
+                var model = await _context.Produtos!.FirstOrDefaultAsync(x => x.Id == id);
                 if (model == null) return BadRequest("Ocorreu um erro desconhecido");
-                context.Produtos!.Remove(model);
-                await context.SaveChangesAsync();
+                _context.Produtos!.Remove(model);
+                await _context.SaveChangesAsync();
                 return Ok("Produto excluído com sucesso");
             }
             catch
