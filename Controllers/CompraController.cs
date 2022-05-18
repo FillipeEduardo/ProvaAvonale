@@ -8,22 +8,22 @@ namespace ProvaAvonale.Controllers
 {
     [ApiController]
     [Route("api/compras")]
-    public class ComprasController : ControllerBase
+    public class CompraController : ControllerBase
     {
         [HttpPost]
         public async Task<IActionResult> PostCompra([FromBody] CompraModel compra, [FromServices] AppDbContext context, [FromServices] IPagamentoRepository repository)
         {
             try
             {
-                var produto = await context.Estoques!.FirstOrDefaultAsync(x => x.Id == compra.ProdutoId);
+                var produto = await context.Produtos!.FirstOrDefaultAsync(x => x.Id == compra.ProdutoId);
                 var pagamento = new PagamentoController();
                 var valor = compra.QtdeComprada * produto!.ValorUnitario;
                 var pagamentoModel = new PagamentoModel(valor, compra.Cartao);
                 
                 var retorno = await pagamento.PostPagamento(repository, pagamentoModel);
-                if (retorno.Estado == "APROVADO" && produto!.QuantidadeEstoque >= compra.QtdeComprada)
+                if (retorno.Estado == "APROVADO" && produto.QuantidadeEstoque >= compra.QtdeComprada)
                 {
-                    produto!.QuantidadeEstoque -= compra.QtdeComprada;
+                    produto.QuantidadeEstoque -= compra.QtdeComprada;
                 }
                 return Ok("Venda realizada com sucesso");
             }

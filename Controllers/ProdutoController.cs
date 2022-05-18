@@ -7,24 +7,24 @@ namespace ProvaAvonale.Controllers
 {
     [ApiController]
     [Route("api")]
-    public class ProdutosController : ControllerBase
+    public class ProdutoController : ControllerBase
     {
         
 
         [HttpPost("produtos")]
-        public async Task<IActionResult> Post([FromBody] ProdutosModel estoque, [FromServices] AppDbContext context)
+        public async Task<IActionResult> Post([FromBody] ProdutoModel estoque, [FromServices] AppDbContext context)
         {
-            if (estoque == null || estoque.ValorUnitario == 0 || estoque.QuantidadeEstoque == 0)
+            if (estoque.ValorUnitario == 0 || estoque.QuantidadeEstoque == 0)
             {
                 return StatusCode(412, "Os valores informados não são válidos");
             }
             try
             {
-                await context.Estoques!.AddAsync(estoque);
+                if (context.Produtos != null) await context.Produtos.AddAsync(estoque);
                 await context.SaveChangesAsync();
                 return Ok("Produto Cadastrado");
             }
-            catch (Exception)
+            catch
             {
                 return StatusCode(400, "Ocorreu um erro desconhecido");
             }
@@ -34,10 +34,10 @@ namespace ProvaAvonale.Controllers
         {
             try
             {
-                var lista = await context.Estoques!.ToListAsync();
+                var lista = await context.Produtos!.ToListAsync();
                 return Ok(lista);
             }
-            catch (Exception)
+            catch
             {
                 return StatusCode(400, "Ocorreu um erro desconhecido");
             }
@@ -48,11 +48,11 @@ namespace ProvaAvonale.Controllers
 
             try
             {
-                var model = await context.Estoques!.FirstOrDefaultAsync(x => x.Id == id);
+                var model = await context.Produtos!.FirstOrDefaultAsync(x => x.Id == id);
                 if (model == null) return BadRequest("Ocorreu um erro desconhecido");
                 return Ok(model);
             }
-            catch (Exception)
+            catch
             {
                 return StatusCode(400, "Ocorreu um erro desconhecido");
             }
@@ -62,13 +62,13 @@ namespace ProvaAvonale.Controllers
         {
             try
             {
-                var model = await context.Estoques!.FirstOrDefaultAsync(x => x.Id == id);
+                var model = await context.Produtos!.FirstOrDefaultAsync(x => x.Id == id);
                 if (model == null) return BadRequest("Ocorreu um erro desconhecido");
-                context.Estoques!.Remove(model);
+                context.Produtos!.Remove(model);
                 await context.SaveChangesAsync();
                 return Ok("Produto excluído com sucesso");
             }
-            catch (Exception)
+            catch
             {
                 return StatusCode(400, "Ocorreu um erro desconhecido");
             }
